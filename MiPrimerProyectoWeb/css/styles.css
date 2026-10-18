@@ -1,0 +1,966 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* ==========================================
+   1. VARIABLES Y CONFIGURACIÓN BASE
+   ========================================== */
+:root {
+  --tinta: #29213f;
+  --morado: #7556d9;
+  --oscuro: #5738b8;
+  --texto: #6f6a7e;
+  --fondo: #fcfbff;
+  --borde: #eeeaf5;
+  --lila: #eee9ff;
+  --rosa: #fff0f5;
+  --azul: #edf4ff;
+  --sombra: 0 20px 60px #4430701a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--fondo);
+  color: var(--tinta);
+  font-family: 'DM Sans', sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+h1, h2, h3 {
+  font-family: 'Manrope', sans-serif;
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+
+/* ==========================================
+   2. COMPONENTES COMUNES Y TIPOGRAFÍA
+   ========================================== */
+.seccion {
+  width: min(1180px, 90%);
+  margin: auto;
+}
+
+.eyebrow {
+  color: var(--morado);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+  display: block;
+}
+
+h1 {
+  font-size: clamp(42px, 5vw, 67px);
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+h1 span, 
+h2 span {
+  color: var(--morado);
+}
+
+.texto-secundario {
+  max-width: 430px;
+  color: var(--texto);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.centrado {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.centrado .texto-secundario {
+  margin: 15px auto;
+}
+
+.etiqueta-chip {
+  display: inline-block;
+  padding: 7px 10px;
+  border-radius: 30px;
+  background: #f0ebff;
+  color: #7052ca;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+
+/* ==========================================
+   3. ENCABEZADO Y NAVEGACIÓN
+   ========================================== */
+.barra {
+  height: 78px;
+  padding: 0 max(5%, calc((100% - 1180px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fffffff0;
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--borde);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 800 20px 'Manrope', sans-serif;
+  white-space: nowrap;
+}
+
+.marca > span:last-child > span {
+  color: var(--morado);
+}
+
+.marca-icono {
+  display: grid;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 12px;
+  background: var(--morado);
+  color: white;
+  font-size: 20px;
+}
+
+.navegacion {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.enlace-nav {
+  color: #777184;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.enlace-nav:hover,
+.enlace-nav.activo {
+  color: var(--morado);
+}
+
+.menu-toggle {
+  display: none;
+  padding: 9px 12px;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  background: white;
+}
+
+.salto-contenido {
+  position: absolute;
+  left: -9999px;
+  padding: 12px;
+  background: white;
+}
+
+.salto-contenido:focus {
+  left: 10px;
+  z-index: 100;
+}
+
+
+/* ==========================================
+   4. BOTONES
+   ========================================== */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 13px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.boton:hover {
+  transform: translateY(-2px);
+}
+
+.boton-principal {
+  background: var(--morado);
+  color: white;
+  box-shadow: 0 8px 20px #7556d930;
+}
+
+.boton-principal:hover {
+  background: var(--oscuro);
+}
+
+.boton-secundario {
+  background: white;
+  border: 1px solid var(--borde);
+}
+
+.boton-nav {
+  background: #f0ebff;
+  color: var(--morado);
+  padding: 12px 16px;
+}
+
+.boton-blanco {
+  background: white;
+  color: #5e43b5;
+}
+
+
+/* ==========================================
+   5. SECCIÓN HERO / PORTADA
+   ========================================== */
+.hero {
+  min-height: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  padding: 60px 0;
+}
+
+.hero-texto {
+  max-width: 560px;
+}
+
+.hero-descripcion {
+  max-width: 490px;
+  color: var(--texto);
+  font-size: 15px;
+  line-height: 1.9;
+  margin-bottom: 29px;
+}
+
+.hero-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero-dato {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-top: 36px;
+}
+
+.hero-dato p {
+  font-size: 11px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.hero-dato strong {
+  font-size: 12px;
+}
+
+.hero-dato p span {
+  color: #918a9e;
+}
+
+.mini-avatares {
+  display: flex;
+  padding-left: 4px;
+}
+
+.mini-avatares span {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  margin-left: -4px;
+  border: 2px solid var(--fondo);
+  border-radius: 50%;
+  background: #e6ddff;
+  color: #6546c5;
+  font-size: 13px;
+}
+
+.mini-avatares span:nth-child(2) {
+  background: #ffe2ed;
+  color: #b44d7c;
+}
+
+.mini-avatares span:nth-child(3) {
+  background: #dceaff;
+  color: #4d6bb5;
+}
+
+
+/* ==========================================
+   6. ILUSTRACIÓN Y ELEMENTOS VISUALES (Incluyendo tu imagen)
+   ========================================== */
+.hero-visual {
+  min-height: 440px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+}
+
+.orb-uno {
+  width: 360px;
+  height: 360px;
+  right: 7%;
+  top: 8%;
+  background: linear-gradient(140deg, #eee7ff, #fcecf5);
+}
+
+.orb-dos {
+  width: 100px;
+  height: 100px;
+  right: 0;
+  bottom: 9%;
+  background: #e5edff;
+}
+
+.visual-ilustracion {
+  position: relative;
+  width: min(400px, 95%);
+  height: 300px;
+  z-index: 1;
+}
+
+/* Estilo para tu imagen personalizada (image.png) */
+.bloque-ilustracion {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #eee8ff, #fcecf5);
+  min-height: 330px;
+  display: grid;
+  place-items: center;
+}
+
+.imagen-proyecto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 24px;
+}
+
+.sello {
+  position: absolute;
+  right: 9%;
+  bottom: 11%;
+  width: 77px;
+  height: 77px;
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  background: white;
+  color: var(--morado);
+  font-size: 10px;
+  font-weight: 800;
+  text-align: center;
+  box-shadow: 0 8px 25px #43345b18;
+  z-index: 3;
+}
+
+/* Tarjetas flotantes */
+.visual-tarjeta {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px 16px;
+  background: #fffffff0;
+  border: 1px solid white;
+  border-radius: 16px;
+  box-shadow: var(--sombra);
+}
+
+.visual-tarjeta strong, 
+.visual-tarjeta small {
+  display: block;
+}
+
+.visual-tarjeta strong {
+  font-size: 11px;
+}
+
+.visual-tarjeta small {
+  margin-top: 4px;
+  color: #918a9e;
+  font-size: 9px;
+}
+
+.visual-tarjeta-superior {
+  top: 42px;
+  left: -2px;
+}
+
+.visual-tarjeta-inferior {
+  right: -4px;
+  bottom: 39px;
+}
+
+.icono-cuadro {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  font-size: 19px;
+}
+
+.icono-cuadro.lila {
+  background: #eee8ff;
+  color: #7958d6;
+}
+
+.icono-cuadro.rosa {
+  background: #ffe9f1;
+  color: #bc5d8a;
+}
+
+.flecha-redonda {
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #f0ebff;
+  color: var(--morado);
+}
+
+
+/* ==========================================
+   7. FRANJA
+   ========================================== */
+.franja {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 22px 5%;
+  background: #f3efff;
+  border-block: 1px solid #ebe4ff;
+  color: #766b91;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.franja span {
+  white-space: nowrap;
+}
+
+
+/* ==========================================
+   8. TARJETAS EDUCATIVAS
+   ========================================== */
+.seccion-aprender {
+  padding: 100px 0;
+}
+
+.encabezado-seccion {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 37px;
+}
+
+.encabezado-seccion h2, 
+.bloque-texto h2, 
+.reto-contenido h2, 
+.quiz-intro h2 {
+  font-size: clamp(30px, 3.6vw, 44px);
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+}
+
+.tarjetas-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 19px;
+}
+
+.tema-card {
+  min-height: 290px;
+  padding: 28px 25px;
+  border: 1px solid transparent;
+  border-radius: 22px;
+  transition: 0.25s;
+}
+
+.tema-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--sombra);
+}
+
+.tema-lila { background: #f1edff; border-color: #e9e1ff; }
+.tema-rosa { background: #fff0f5; border-color: #ffe3ed; }
+.tema-azul { background: #edf4ff; border-color: #e0ebff; }
+
+.tema-icono {
+  width: 47px;
+  height: 47px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  background: white;
+  color: var(--morado);
+  font-size: 24px;
+}
+
+.tema-numero {
+  color: #898198;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+}
+
+.tema-card h3 {
+  margin: 12px 0;
+  font-size: 20px;
+}
+
+.tema-card p {
+  min-height: 66px;
+  margin-bottom: 20px;
+  color: var(--texto);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.enlace-card {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--morado);
+}
+
+.enlace-card span {
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.enlace-card:hover span {
+  transform: translateX(4px);
+}
+
+
+/* ==========================================
+   9. PROGRAMACIÓN Y TEMARIO
+   ========================================== */
+.bloque-destacado {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+  padding: 40px 0 110px;
+}
+
+.bloque-texto h2 {
+  margin-bottom: 19px;
+}
+
+.bloque-texto > p:not(.eyebrow) {
+  color: var(--texto);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.lista-check {
+  padding: 0;
+  margin: 22px 0 27px;
+  list-style: none;
+}
+
+.lista-check li {
+  position: relative;
+  padding-left: 27px;
+  margin: 13px 0;
+  color: #5e586d;
+  font-size: 12px;
+}
+
+.lista-check li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #e7e0ff;
+  color: var(--morado);
+}
+
+.temas-detalle {
+  padding: 50px 0 105px;
+}
+
+.detalle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.detalle-item {
+  display: flex;
+  gap: 16px;
+  padding-top: 22px;
+  border-top: 1px solid #e9e3f1;
+}
+
+.detalle-numero {
+  color: #a08be5;
+  font: 800 14px 'Manrope', sans-serif;
+}
+
+.detalle-item h3 {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.detalle-item p {
+  color: var(--texto);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+
+/* ==========================================
+   10. RETO INTERACTIVO
+   ========================================== */
+.reto-seccion {
+  width: 100%;
+  padding: 78px max(5%, calc((100% - 1180px) / 2));
+  display: grid;
+  justify-items: center;
+  background: #f2edff;
+  text-align: center;
+}
+
+.reto-contenido {
+  width: min(760px, 100%);
+}
+
+.reto-contenido > p:not(.eyebrow) {
+  color: var(--texto);
+  font-size: 13px;
+}
+
+.reto-opciones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 30px 0 18px;
+}
+
+.reto-opcion {
+  padding: 16px 10px;
+  border: 1px solid #e4dcf8;
+  border-radius: 14px;
+  background: white;
+  color: var(--tinta);
+  font-size: 11px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.reto-opcion span {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 22px;
+}
+
+.reto-opcion:hover, 
+.reto-opcion.seleccionada {
+  border-color: #a58aef;
+  box-shadow: 0 7px 18px #5b3d9e12;
+}
+
+.reto-resultado {
+  padding: 20px 22px;
+  border: 1px solid #ebe5f7;
+  border-radius: 15px;
+  background: white;
+  text-align: left;
+}
+
+.reto-resultado strong {
+  font-size: 13px;
+}
+
+.reto-resultado p {
+  margin: 8px 0 0;
+  color: var(--texto);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+
+/* ==========================================
+   11. NUEVO DISEÑO PARA EL QUIZ (MODERNO Y ELEGANTE)
+   ========================================== */
+.quiz-seccion {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: start;
+  gap: 40px;
+  padding: 80px 0;
+}
+
+.quiz-intro h2 {
+  font-size: clamp(28px, 3.5vw, 40px);
+  margin-bottom: 15px;
+}
+
+.quiz-estadistica {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 10px 16px;
+  border-radius: 20px;
+  background: var(--lila);
+  color: var(--morado);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.quiz-card {
+  background: #ffffff;
+  border: 1px solid var(--borde);
+  border-radius: 24px;
+  padding: 35px 30px;
+  box-shadow: var(--sombra);
+  position: relative;
+}
+
+.quiz-progreso {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 800;
+  color: #898198;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.barra-progreso {
+  width: 100%;
+  height: 8px;
+  background: #f0ebff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.barra-progreso span {
+  display: block;
+  height: 100%;
+  width: 33%;
+  background: linear-gradient(90deg, var(--morado), #a88beb);
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+#preguntaTexto {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--tinta);
+  line-height: 1.4;
+  margin-bottom: 25px;
+}
+
+.respuestas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.respuesta {
+  width: 100%;
+  text-align: left;
+  padding: 16px 20px;
+  border: 2px solid var(--borde);
+  border-radius: 16px;
+  background: #fcfbff;
+  color: var(--tinta);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.respuesta:hover:not(:disabled) {
+  border-color: var(--morado);
+  background: #f8f5ff;
+  transform: translateY(-2px);
+}
+
+.respuesta.correcta {
+  background: #e7f8ef !important;
+  border-color: #2eac68 !important;
+  color: #1b683e !important;
+  font-weight: 700;
+}
+
+.respuesta.incorrecta {
+  background: #ffebeb !important;
+  border-color: #e65252 !important;
+  color: #9c2222 !important;
+}
+
+.feedback {
+  min-height: 48px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.feedback:not(:empty) {
+  display: block;
+}
+
+.feedback.correcto {
+  background: #eefbf4;
+  color: #1d7c48;
+  border: 1px solid #c3f0d5;
+}
+
+.feedback.error {
+  background: #fff3f3;
+  color: #b82d2d;
+  border: 1px solid #fcd3d3;
+}
+
+.quiz-pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 15px;
+  border-top: 1px solid var(--borde);
+}
+
+#quizPuntaje {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--morado);
+}
+
+.boton-siguiente {
+  padding: 12px 22px;
+}
+
+.boton-siguiente:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.resultado-final {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--texto);
+  background: #f8f5ff;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px dashed var(--morado);
+}
+
+
+/* ==========================================
+   12. CIERRE Y PIE DE PÁGINA
+   ========================================== */
+.cierre {
+  padding: 80px 0;
+  text-align: center;
+  background: var(--morado);
+  color: white;
+  border-radius: 30px;
+  width: min(1180px, 90%);
+  margin: 60px auto;
+}
+
+.cierre h2 {
+  color: white;
+  margin-bottom: 15px;
+}
+
+.cierre p {
+  color: #e2d9ff;
+  max-width: 500px;
+  margin: 0 auto 30px;
+  font-size: 14px;
+}
+
+.pie-pagina {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--texto);
+  font-size: 12px;
+  border-top: 1px solid var(--borde);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.copyright {
+  color: #9a94a6;
+}
+
+
+/* ==========================================
+   13. DISEÑO RESPONSIVO (MÓVILES)
+   ========================================== */
+@media (max-width: 768px) {
+  .navegacion {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .hero, .bloque-destacado, .quiz-seccion {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .tarjetas-grid, .detalle-grid, .reto-opciones {
+    grid-template-columns: 1fr;
+  }
+}
