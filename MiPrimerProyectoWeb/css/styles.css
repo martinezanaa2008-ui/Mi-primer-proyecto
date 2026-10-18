@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
-/* ==========================================
-   1. VARIABLES Y CONFIGURACIÓN BASE
-   ========================================== */
+
 :root {
   --tinta: #29213f;
   --morado: #7556d9;
@@ -52,9 +50,6 @@ p {
 }
 
 
-/* ==========================================
-   2. COMPONENTES COMUNES Y TIPOGRAFÍA
-   ========================================== */
 .seccion {
   width: min(1180px, 90%);
   margin: auto;
@@ -107,9 +102,6 @@ h2 span {
 }
 
 
-/* ==========================================
-   3. ENCABEZADO Y NAVEGACIÓN
-   ========================================== */
 .barra {
   height: 78px;
   padding: 0 max(5%, calc((100% - 1180px) / 2));
@@ -186,9 +178,7 @@ h2 span {
 }
 
 
-/* ==========================================
-   4. BOTONES
-   ========================================== */
+
 .boton {
   display: inline-flex;
   align-items: center;
@@ -233,9 +223,6 @@ h2 span {
 }
 
 
-/* ==========================================
-   5. SECCIÓN HERO / PORTADA
-   ========================================== */
 .hero {
   min-height: 600px;
   display: grid;
@@ -313,9 +300,6 @@ h2 span {
 }
 
 
-/* ==========================================
-   6. ILUSTRACIÓN Y ELEMENTOS VISUALES (Incluyendo tu imagen)
-   ========================================== */
 .hero-visual {
   min-height: 440px;
   position: relative;
@@ -351,7 +335,6 @@ h2 span {
   z-index: 1;
 }
 
-/* Estilo para tu imagen personalizada (image.png) */
 .bloque-ilustracion {
   position: relative;
   overflow: hidden;
@@ -457,9 +440,7 @@ h2 span {
 }
 
 
-/* ==========================================
-   7. FRANJA
-   ========================================== */
+
 .franja {
   display: flex;
   justify-content: center;
@@ -479,9 +460,7 @@ h2 span {
 }
 
 
-/* ==========================================
-   8. TARJETAS EDUCATIVAS
-   ========================================== */
+
 .seccion-aprender {
   padding: 100px 0;
 }
@@ -576,9 +555,7 @@ h2 span {
 }
 
 
-/* ==========================================
-   9. PROGRAMACIÓN Y TEMARIO
-   ========================================== */
+
 .bloque-destacado {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -658,9 +635,7 @@ h2 span {
 }
 
 
-/* ==========================================
-   10. RETO INTERACTIVO
-   ========================================== */
+
 .reto-seccion {
   width: 100%;
   padding: 78px max(5%, calc((100% - 1180px) / 2));
@@ -729,9 +704,7 @@ h2 span {
 }
 
 
-/* ==========================================
-   11. NUEVO DISEÑO PARA EL QUIZ (MODERNO Y ELEGANTE)
-   ========================================== */
+
 .quiz-seccion {
   display: grid;
   grid-template-columns: 0.8fr 1.2fr;
@@ -904,9 +877,7 @@ h2 span {
 }
 
 
-/* ==========================================
-   12. CIERRE Y PIE DE PÁGINA
-   ========================================== */
+
 .cierre {
   padding: 80px 0;
   text-align: center;
@@ -946,9 +917,7 @@ h2 span {
 }
 
 
-/* ==========================================
-   13. DISEÑO RESPONSIVO (MÓVILES)
-   ========================================== */
+
 @media (max-width: 768px) {
   .navegacion {
     display: none;
